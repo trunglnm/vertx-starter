@@ -6,7 +6,6 @@ import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.unit.Async;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
-import io.vertx.ext.web.
 import io.vertx.ext.web.client.HttpResponse;
 import io.vertx.ext.web.client.WebClient;
 import org.junit.After;
@@ -49,6 +48,7 @@ public class HttpServerVerticleTest {
 							context.assertTrue(response.headers().contains("Content-Type"));
 							context.assertEquals("text/plain", response.getHeader("Content-Type"));
 							context.assertEquals("Ok", response.body().toString());
+							webClient.close();
 							async.complete();
 						} else {
 							async.resolve(Future.failedFuture(ar.cause()));

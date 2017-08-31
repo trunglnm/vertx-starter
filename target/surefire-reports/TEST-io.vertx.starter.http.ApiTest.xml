@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="io.vertx.starter.MainVerticleTest" time="5.912" errors="1" skipped="0">
+<testsuite tests="1" failures="1" name="io.vertx.starter.http.ApiTest" time="5.622" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/1.8.0_131.jdk/Contents/Home/jre/lib"/>
@@ -44,10 +44,11 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="trunglnm"/>
     <property name="java.class.path" value="/Users/trunglnm/Documents/working/build_tool/apache-maven-3.5.0/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="debug"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/1.8.0_131.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package -X"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -65,70 +66,71 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="io.vertx.starter.MainVerticleTest" name="testThatTheServerIsStarted" time="5.912">
-    <error message="unexpected token: NOTE required: (" type="java.sql.SQLSyntaxErrorException">java.sql.SQLSyntaxErrorException: unexpected token: NOTE required: (
+  <testcase classname="io.vertx.starter.http.ApiTest" name="play_with_api" time="5.622">
+    <failure message="Expected true" type="java.lang.AssertionError">java.lang.AssertionError: Expected true
+	at io.vertx.ext.unit.impl.TestContextImpl.reportAssertionError(TestContextImpl.java:432)
+	at io.vertx.ext.unit.impl.TestContextImpl.assertTrue(TestContextImpl.java:282)
+	at io.vertx.ext.unit.impl.TestContextImpl.assertTrue(TestContextImpl.java:288)
+	at io.vertx.starter.http.ApiTest.lambda$play_with_api$6(ApiTest.java:113)
+	at io.vertx.core.Future.lambda$compose$0(Future.java:232)
+	at io.vertx.core.impl.FutureImpl.tryComplete(FutureImpl.java:126)
+	at io.vertx.core.impl.FutureImpl.complete(FutureImpl.java:88)
+	at io.vertx.starter.http.ApiTest.lambda$null$3(ApiTest.java:103)
+	at io.vertx.ext.web.client.impl.HttpRequestImpl.lambda$null$1(HttpRequestImpl.java:238)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:337)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:445)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at java.lang.Thread.run(Thread.java:748)
+</failure>
+    <system-out>16:46:49.956 [vert.x-eventloop-thread-2] INFO  i.v.starter.http.HttpServerVerticle - HTTP server running on port 8080
+16:46:50.224 [vert.x-eventloop-thread-0] ERROR i.v.s.d.WikiDatabaseServiceImpl - Database query error
+java.sql.SQLException: Invalid argument in JDBC call
 	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
-	at org.hsqldb.jdbc.JDBCStatement.fetchResult(Unknown Source)
-	at org.hsqldb.jdbc.JDBCStatement.execute(Unknown Source)
-	at com.mchange.v2.c3p0.impl.NewProxyStatement.execute(NewProxyStatement.java:75)
-	at io.vertx.ext.jdbc.impl.actions.JDBCExecute.execute(JDBCExecute.java:50)
-	at io.vertx.ext.jdbc.impl.actions.JDBCExecute.execute(JDBCExecute.java:32)
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCUtil.invalidArgument(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.setClobParameter(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.setClobParameter(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.setParameter(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.setObject(Unknown Source)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setObject(NewProxyPreparedStatement.java:878)
+	at io.vertx.ext.jdbc.impl.actions.JDBCStatementHelper.fillStatement(JDBCStatementHelper.java:89)
+	at io.vertx.ext.jdbc.impl.actions.JDBCUpdate.execute(JDBCUpdate.java:59)
+	at io.vertx.ext.jdbc.impl.actions.JDBCUpdate.execute(JDBCUpdate.java:36)
 	at io.vertx.ext.jdbc.impl.actions.AbstractJDBCAction.handle(AbstractJDBCAction.java:58)
 	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$1(ContextImpl.java:271)
 	at io.vertx.core.impl.TaskQueue.lambda$new$0(TaskQueue.java:60)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:748)
-Caused by: org.hsqldb.HsqlException: unexpected token: NOTE required: (
-	at org.hsqldb.error.Error.parseError(Unknown Source)
-	at org.hsqldb.ParserBase.unexpectedTokenRequire(Unknown Source)
-	at org.hsqldb.ParserBase.readThis(Unknown Source)
-	at org.hsqldb.ParserTable.readTableContentsSource(Unknown Source)
-	at org.hsqldb.ParserTable.compileCreateTableBody(Unknown Source)
-	at org.hsqldb.ParserTable.compileCreateTable(Unknown Source)
-	at org.hsqldb.ParserDDL.compileCreate(Unknown Source)
-	at org.hsqldb.ParserCommand.compilePart(Unknown Source)
-	at org.hsqldb.ParserCommand.compileStatements(Unknown Source)
-	at org.hsqldb.Session.executeDirectStatement(Unknown Source)
-	at org.hsqldb.Session.execute(Unknown Source)
-	... 11 more
-</error>
-    <system-out>10:53:53.819 [vert.x-eventloop-thread-1] ERROR i.v.s.d.WikiDatabaseServiceImpl - Database preparation error
-java.sql.SQLSyntaxErrorException: unexpected token: NOTE required: (
-	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
-	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
-	at org.hsqldb.jdbc.JDBCStatement.fetchResult(Unknown Source)
-	at org.hsqldb.jdbc.JDBCStatement.execute(Unknown Source)
-	at com.mchange.v2.c3p0.impl.NewProxyStatement.execute(NewProxyStatement.java:75)
-	at io.vertx.ext.jdbc.impl.actions.JDBCExecute.execute(JDBCExecute.java:50)
-	at io.vertx.ext.jdbc.impl.actions.JDBCExecute.execute(JDBCExecute.java:32)
-	at io.vertx.ext.jdbc.impl.actions.AbstractJDBCAction.handle(AbstractJDBCAction.java:58)
-	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$1(ContextImpl.java:271)
-	at io.vertx.core.impl.TaskQueue.lambda$new$0(TaskQueue.java:60)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: org.hsqldb.HsqlException: unexpected token: NOTE required: (
-	at org.hsqldb.error.Error.parseError(Unknown Source)
-	at org.hsqldb.ParserBase.unexpectedTokenRequire(Unknown Source)
-	at org.hsqldb.ParserBase.readThis(Unknown Source)
-	at org.hsqldb.ParserTable.readTableContentsSource(Unknown Source)
-	at org.hsqldb.ParserTable.compileCreateTableBody(Unknown Source)
-	at org.hsqldb.ParserTable.compileCreateTable(Unknown Source)
-	at org.hsqldb.ParserDDL.compileCreate(Unknown Source)
-	at org.hsqldb.ParserCommand.compilePart(Unknown Source)
-	at org.hsqldb.ParserCommand.compileStatements(Unknown Source)
-	at org.hsqldb.Session.executeDirectStatement(Unknown Source)
-	at org.hsqldb.Session.execute(Unknown Source)
-	... 11 common frames omitted
+Caused by: org.hsqldb.HsqlException: Invalid argument in JDBC call
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.error.Error.error(Unknown Source)
+	... 16 common frames omitted
 </system-out>
-    <system-err>Aug 31, 2017 10:53:51 AM io.vertx.core.impl.BlockedThreadChecker
-WARNING: Thread Thread[vert.x-eventloop-thread-1,5,main] has been blocked for 2893 ms, time limit is 2000
-Aug 31, 2017 10:53:52 AM io.vertx.core.impl.BlockedThreadChecker
-WARNING: Thread Thread[vert.x-eventloop-thread-1,5,main] has been blocked for 3893 ms, time limit is 2000
-Aug 31, 2017 10:53:53 AM io.vertx.core.impl.BlockedThreadChecker
-WARNING: Thread Thread[vert.x-eventloop-thread-1,5,main] has been blocked for 4897 ms, time limit is 2000
+    <system-err>2017-08-31T16:46:47.617+0700  WARNING  Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2933 ms, time limit is 2000
+2017-08-31T16:46:48.618+0700  WARNING  Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 3934 ms, time limit is 2000
+2017-08-31T16:46:49.622+0700  WARNING  Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 4938 ms, time limit is 2000
+2017-08-31T16:46:50.226+0700  SEVERE  Unhandled exception
+java.lang.IllegalStateException: Result is already complete: failed
+	at io.vertx.core.impl.FailedFuture.fail(FailedFuture.java:68)
+	at io.vertx.core.Future.lambda$compose$0(Future.java:240)
+	at io.vertx.core.impl.FutureImpl.tryFail(FutureImpl.java:170)
+	at io.vertx.core.impl.FutureImpl.fail(FutureImpl.java:102)
+	at io.vertx.core.Future.lambda$compose$0(Future.java:237)
+	at io.vertx.core.impl.FutureImpl.tryComplete(FutureImpl.java:126)
+	at io.vertx.core.impl.FutureImpl.complete(FutureImpl.java:88)
+	at io.vertx.starter.http.ApiTest.lambda$null$3(ApiTest.java:103)
+	at io.vertx.ext.web.client.impl.HttpRequestImpl.lambda$null$1(HttpRequestImpl.java:238)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:337)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:445)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at java.lang.Thread.run(Thread.java:748)
+
 </system-err>
   </testcase>
 </testsuite>

@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: io.vertx.starter.http.ApiTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.623 sec <<< FAILURE!
+play_with_api(io.vertx.starter.http.ApiTest)  Time elapsed: 5.622 sec  <<< FAILURE!
+java.lang.AssertionError: Expected true
+	at io.vertx.ext.unit.impl.TestContextImpl.reportAssertionError(TestContextImpl.java:432)
+	at io.vertx.ext.unit.impl.TestContextImpl.assertTrue(TestContextImpl.java:282)
+	at io.vertx.ext.unit.impl.TestContextImpl.assertTrue(TestContextImpl.java:288)
+	at io.vertx.starter.http.ApiTest.lambda$play_with_api$6(ApiTest.java:113)
+	at io.vertx.core.Future.lambda$compose$0(Future.java:232)
+	at io.vertx.core.impl.FutureImpl.tryComplete(FutureImpl.java:126)
+	at io.vertx.core.impl.FutureImpl.complete(FutureImpl.java:88)
+	at io.vertx.starter.http.ApiTest.lambda$null$3(ApiTest.java:103)
+	at io.vertx.ext.web.client.impl.HttpRequestImpl.lambda$null$1(HttpRequestImpl.java:238)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:337)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:445)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at java.lang.Thread.run(Thread.java:748)
+

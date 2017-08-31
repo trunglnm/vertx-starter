@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: io.vertx.starter.database.WikiDatabaseVerticleTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.063 sec <<< FAILURE!
+crud_operations(io.vertx.starter.database.WikiDatabaseVerticleTest)  Time elapsed: 10.935 sec  <<< ERROR!
+(RECIPIENT_FAILURE,-1) Invalid argument in JDBC call
+	at io.vertx.starter.database.WikiDatabaseServiceVertxProxyHandler.lambda$createHandler$0(WikiDatabaseServiceVertxProxyHandler.java:176)
+	at io.vertx.starter.database.WikiDatabaseServiceImpl.lambda$null$11(WikiDatabaseServiceImpl.java:193)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:81)
+	at io.vertx.core.impl.ContextImpl.lambda$null$0(ContextImpl.java:287)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:337)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:445)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at java.lang.Thread.run(Thread.java:748)
+

@@ -30,6 +30,8 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.0" level="project" />
     <orderEntry type="library" name="Maven: io.vertx:vertx-web:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: io.vertx:vertx-auth-common:3.4.2" level="project" />
+    <orderEntry type="library" name="Maven: io.vertx:vertx-web-client:3.4.2" level="project" />
+    <orderEntry type="library" name="Maven: io.vertx:vertx-web-common:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: io.vertx:vertx-web-templ-freemarker:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.23" level="project" />
     <orderEntry type="library" name="Maven: com.github.rjeschke:txtmark:0.13" level="project" />
